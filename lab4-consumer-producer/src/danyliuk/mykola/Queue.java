@@ -16,6 +16,7 @@ public class Queue {
                 lock.wait();
                 add(s);
             }
+            lock.notify();
             items[addPointer] = s;
             if (++addPointer == items.length) addPointer = 0;
             ++count;
@@ -28,10 +29,10 @@ public class Queue {
                 lock.wait();
                 remove();
             }
+            lock.notify();
             String s = items[removePointer];
             if (++removePointer == items.length)
                 removePointer = 0;
-
             --count;
             return s;
         }

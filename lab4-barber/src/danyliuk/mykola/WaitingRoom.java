@@ -34,7 +34,6 @@ public class WaitingRoom {
                 status = true;
                 placesInWaitingRoom--;
                 lock.notify();
-
             }
 
             return status;
