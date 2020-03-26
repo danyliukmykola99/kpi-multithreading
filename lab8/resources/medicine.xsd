@@ -1,0 +1,50 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:lab8" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Medicine" type="urn:MedicineType" xmlns:urn="urn:lab8"/>
+    <xs:complexType name="AnalogsType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="Analog"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CertificateType">
+        <xs:sequence>
+            <xs:element type="xs:short" name="Number"/>
+            <xs:element type="xs:string" name="IssueDate"/>
+            <xs:element type="xs:string" name="ExpirationDate"/>
+            <xs:element type="xs:string" name="RegisteringCompany"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PackageType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="Type"/>
+            <xs:element type="xs:byte" name="Quantity"/>
+            <xs:element type="xs:float" name="Price"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DosageType">
+        <xs:sequence>
+            <xs:element type="xs:byte" name="Quantity"/>
+            <xs:element type="xs:string" name="Periodicity"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VersionType">
+        <xs:sequence>
+            <xs:element type="urn:CertificateType" name="Certificate" xmlns:urn="urn:lab8"/>
+            <xs:element type="urn:PackageType" name="Package" xmlns:urn="urn:lab8"/>
+            <xs:element type="urn:DosageType" name="Dosage" xmlns:urn="urn:lab8"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VersionsType">
+        <xs:sequence>
+            <xs:element type="urn:VersionType" name="Version" xmlns:urn="urn:lab8"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MedicineType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="Name"/>
+            <xs:element type="xs:string" name="Pharm"/>
+            <xs:element type="xs:string" name="Group"/>
+            <xs:element type="urn:AnalogsType" name="Analogs" xmlns:urn="urn:lab8"/>
+            <xs:element type="urn:VersionsType" name="Versions" xmlns:urn="urn:lab8"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
