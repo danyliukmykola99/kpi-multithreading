@@ -2,7 +2,7 @@ package danyliuk.mykola;
 
 public class Main {
 
-    public static final int SIZE = 10000;
+    public static final int SIZE = 5000000;
     public static final int THREADS_COUNT = 10;
     public static double[] vector = new double[SIZE];
 
@@ -19,8 +19,8 @@ public class Main {
 
         double parallelResult = getParallelResult();
 
-        System.out.println("Serial result: " + serialResult);
-        System.out.println("Parallel result: " + parallelResult);
+        System.out.format("\tParallel results: %.6f\n", parallelResult);
+        System.out.format("\tSerial results: %.6f\n", serialResult);
 
     }
 
