@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Medicine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MedicineTypes" type="MedicineTypes"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="MedicineTypes">
+        <xs:sequence>
+            <xs:element name="MedicineType" type="MedicineType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AnalogsType">
+        <xs:sequence>
+            <xs:element name="Analog" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CertificateType">
+        <xs:sequence>
+            <xs:element name="Number" type="xs:short"/>
+            <xs:element name="IssueDate" type="xs:string"/>
+            <xs:element name="ExpirationDate" type="xs:string"/>
+            <xs:element name="RegisteringCompany" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PackageType">
+        <xs:sequence>
+            <xs:element name="Type" type="xs:string"/>
+            <xs:element name="Quantity" type="xs:byte"/>
+            <xs:element name="Price" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DosageType">
+        <xs:sequence>
+            <xs:element name="Quantity" type="xs:byte"/>
+            <xs:element name="Periodicity" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VersionType">
+        <xs:sequence>
+            <xs:element name="Certificate" type="CertificateType"/>
+            <xs:element name="Package" type="PackageType"/>
+            <xs:element name="Dosage" type="DosageType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VersionsType">
+        <xs:sequence>
+            <xs:element name="Version" type="VersionType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MedicineType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Pharm" type="xs:string"/>
+            <xs:element name="Group" type="xs:string"/>
+            <xs:element name="Analogs" type="AnalogsType"/>
+            <xs:element name="Versions" type="VersionsType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

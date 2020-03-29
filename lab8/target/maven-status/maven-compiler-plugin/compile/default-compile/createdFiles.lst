@@ -1,0 +1,12 @@
+generated/PackageType.class
+generated/MedicineType.class
+generated/MedicineTypes.class
+generated/CertificateType.class
+com/example/demo/DemoApplication.class
+generated/AnalogsType.class
+generated/Medicine.class
+com/example/demo/config/Config.class
+generated/DosageType.class
+generated/VersionsType.class
+generated/VersionType.class
+generated/ObjectFactory.class
